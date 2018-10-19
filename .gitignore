@@ -1,0 +1,4 @@
+*target*
+*/.externalToolBuilders*
+/website-base/.gitignore
+/website-cache/.gitignore

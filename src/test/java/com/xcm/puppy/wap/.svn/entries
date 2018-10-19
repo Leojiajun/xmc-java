@@ -1,0 +1,70 @@
+10
+
+dir
+0
+svn://139.196.174.82/soucrces_xcm/automation_test/puppy/src/test/java/com/xcm/puppy/wap
+svn://139.196.174.82
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+6ef0b5d6-2d75-4c7e-92e2-6f914d3a17cc
+
+AccountTest.java
+file
+
+
+
+add
+
+HomeTest.java
+file
+
+
+
+add
+
+LandingpageTest.java
+file
+
+
+
+add
+
+ProductTest.java
+file
+
+
+
+add
+
+SmokeTest.java
+file
+
+
+
+add
+
+WapBaseTest.java
+file
+
+
+
+add
+

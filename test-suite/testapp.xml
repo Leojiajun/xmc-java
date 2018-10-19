@@ -1,0 +1,46 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="APP Test" verbose="1" allow-return-values="true">
+
+	<listeners>
+		<listener class-name="com.xcm.puppy.util.RetryListener" />
+		<listener class-name="com.xcm.puppy.util.CustomTestListener" />
+	</listeners>
+
+    <parameter name="driver-type" value="IOS" />
+    <parameter name="username" value="15601718400" />
+    <parameter name="password" value="1q2w3e4r" />
+
+	<test name="Checkout Test" preserve-order="true">
+		<classes>
+			<class name="com.xcm.puppy.SmokeTest" />
+		</classes>
+	</test>
+
+	<test name="Product Detail Test" preserve-order="true">
+		<classes>
+			<class name="com.xcm.puppy.ProductInfoTest" />
+		</classes>
+	</test>
+
+    <test name="Product List Test" preserve-order="true">
+        <classes>
+            <class name="com.xcm.puppy.ProductTest" />
+        </classes>
+    </test>
+
+	<test name="Account Test" preserve-order="true">
+		<classes>
+			<class name="com.xcm.puppy.AccountTest" />
+		</classes>
+	</test>
+
+	<test name="Help Center Test" preserve-order="true">
+		<classes>
+			<class name="com.xcm.puppy.MoreTest" />
+		</classes>
+	</test>
+
+
+
+</suite>

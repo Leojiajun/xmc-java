@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Demo Suite" verbose="1">
+	<parameter name="driver-type" value="Android" />
+	<test name="Just use for a demo" preserve-order="true">
+		<classes>
+			<class name="com.xcm.puppy.AppTest" />
+		</classes>
+	</test>
+</suite>

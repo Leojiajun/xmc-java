@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="APP Test" verbose="1" allow-return-values="true">
+
+	<test name="Select House" preserve-order="true">
+		<classes>
+			<class name="com.xcm.puppy.SelectHouse" />
+		</classes>
+	</test>
+</suite>

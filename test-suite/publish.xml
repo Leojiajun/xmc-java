@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Product Publish" verbose="1">
+
+    <test name="Product Publish" preserve-order="true">
+        <classes>
+            <class name="com.xcm.puppy.ProductRelease" />
+        </classes>
+    </test>
+</suite>

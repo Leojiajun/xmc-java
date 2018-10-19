@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Demo Suite" verbose="1" allow-return-values="true">
+    <listeners>
+        <listener class-name="com.xcm.puppy.util.RetryListener"/>
+        <listener class-name="com.xcm.puppy.util.CustomTestListener"/>
+    </listeners>
+
+    <parameter name="driver-type" value="Firefox" />
+    <parameter name="base-url" value="http://www.17ce.com/" />
+    <test name="Checkout Test" preserve-order="true">
+        <classes>
+            <class name="com.xcm.puppy.CDNRelease" />
+        </classes>
+    </test>
+</suite>

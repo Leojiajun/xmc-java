@@ -1,0 +1,35 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Web Test" verbose="1">
+
+    <listeners>
+        <listener class-name="com.xcm.puppy.util.RetryListener" />
+        <listener class-name="com.xcm.puppy.util.CustomTestListener" />
+    </listeners>
+
+    <parameter name="driver-type" value="Firefox" />
+    <parameter name="username" value="15601718400" />
+    <parameter name="password" value="1q2w3e4r" />
+    <parameter name="expected" value="8400" />
+    <parameter name="page-no" value="3" />
+
+	<test name="Checkout Test" preserve-order="true">
+		<classes>
+            <class name="com.xcm.puppy.website.SmokeTest" />
+		</classes>
+	</test>
+    <test name="Account Test" preserve-order="true">
+        <classes>
+            <class name="com.xcm.puppy.website.AccountTest" />
+        </classes>
+    </test>
+    <test name="Homepage Test" preserve-order="true">
+        <classes>
+            <class name="com.xcm.puppy.website.HomeTest" />
+        </classes>
+    </test>
+    <test name="Product Test" preserve-order="true">
+        <classes>
+            <class name="com.xcm.puppy.website.ProductTest" />
+        </classes>
+    </test>
+</suite>

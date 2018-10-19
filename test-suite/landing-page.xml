@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Wap Test" verbose="1" allow-return-values="true">
+    <listeners>
+        <listener class-name="com.xcm.puppy.util.RetryListener"/>
+        <listener class-name="com.xcm.puppy.util.CustomTestListener"/>
+    </listeners>
+
+    <parameter name="browser-name" value="Safari" />
+    <parameter name="base-url" value="http://m.91xcm.com" />
+    <parameter name="username" value="15601718400"/>
+    <parameter name="password" value="1q2w3e4r"/>
+    <parameter name="end-username" value="sunlichao"/>
+    <parameter name="end-password" value="slc123456"/>
+    <parameter name="mobile" value="13148111923" />
+
+    <test name="Landing Page Test" preserve-order="true">
+        <classes>
+            <class name="com.xcm.puppy.wap.LandingpageTest" />
+        </classes>
+    </test>
+
+</suite>

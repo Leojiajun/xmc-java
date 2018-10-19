@@ -1,0 +1,9 @@
+2016-05-09 21:04:55 [main]-[INFO] Clicked on the element name=账户
+2016-05-09 21:05:08 [main]-[INFO] Type admin in the page element id=com.xcm91.xiaocaimi:id/et_phone_num
+2016-05-09 21:05:12 [main]-[INFO] Clicked on the element id=com.xcm91.xiaocaimi:id/btn_confirm_container
+2016-05-09 21:06:22 [main]-[ERROR] Can't locate the web element by the locator name=账户
+2016-05-09 21:06:30 [main]-[INFO] Type demo in the page element id=com.xcm91.xiaocaimi:id/et_phone_num
+2016-05-09 21:06:34 [main]-[INFO] Clicked on the element id=com.xcm91.xiaocaimi:id/btn_confirm_container
+2016-05-09 21:17:38 [main]-[INFO] Clicked on the element name=账户
+2016-05-09 21:17:51 [main]-[INFO] Type 15601718401 in the page element id=com.xcm91.xiaocaimi:id/et_phone_num
+2016-05-09 21:17:53 [main]-[INFO] Clicked on the element id=com.xcm91.xiaocaimi:id/btn_confirm_container

@@ -1,0 +1,29 @@
+package com.xcm.puppy;
+
+import org.testng.annotations.Test;
+
+import com.xcm.puppy.util.AppiumTest;
+
+public class AppTest extends AppiumTest {
+
+	@Test(alwaysRun = true, dataProvider = "data4Demo", dataProviderClass = com.xcm.puppy.util.StaticDataProvider.class)
+	public void testApp(String username, String password, String expectation) {
+		
+		addThinkTime(60000);
+		selenium.click("id=com.xcm91.xiaocaimi:id/rd3");
+		selenium.sendkeys("id=com.xcm91.xiaocaimi:id/et_phone_num", username);
+		selenium.click("id=com.xcm91.xiaocaimi:id/btn_confirm_container");
+		System.out.println(username + " | " + password);
+
+	}
+	
+	private void addThinkTime(long ms)
+	{
+		try {
+			Thread.sleep(60000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}		
+	}
+
+}

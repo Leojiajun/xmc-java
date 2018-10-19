@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Demo Suite" verbose="1" allow-return-values="true">
+    <listeners>
+        <listener class-name="com.xcm.puppy.util.CustomTestListener"/>
+    </listeners>
+
+
+    <parameter name="driver-type" value="IOS" />
+    <parameter name="username" value="15601718400" />
+    <parameter name="password" value="1q2w3e4r" />
+    <parameter name="ipa-path" value="/Users/jenkins/pkg/XCMTest_1.1.0.ipa" />
+    <!--
+    <parameter name="ud-id" value="81e62b3f90a3eb79b658ab1e22edf45da3c9cdf0" />
+    <parameter name="bundle-id" value="com.91xcm.xiaocaimitest" />
+    -->
+    <test name="Checkout Test" preserve-order="true">
+        <classes>
+            <class name="com.xcm.puppy.website.Demo" />
+        </classes>
+    </test>
+</suite>

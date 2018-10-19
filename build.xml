@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="puppy" basedir=".">
+
+	<taskdef resource="testngtasks" classpath="target/dependency/testng-6.9.10.jar" />
+
+	<property name="src.dir" value="src/test/java" />
+	<property name="build.dir" value="target/build" />
+	<property name="classes.dir" value="${build.dir}/classes" />
+	<property name="jar.dir" value="${build.dir}/jar" />
+	<property name="lib.dir" value="target/dependency" />
+	<property name="resources.dir" value="resources" />
+	<property name="testcase.dir" value="test-suite" />
+	<property name="output.dir" value="test-output" />
+	<property name="report.dir" value="test-report" />
+
+    <property name="driverType" value="${driverType}" />
+    <property name="remoteAddress" value="${remoteAddress}" />
+    <property name="apkPath" value="${apkPath}" />
+    <property name="ipaPath" value="${ipaPath}" />
+    <property name="platformName" value="${platformName}" />
+    <property name="platformVersion" value="${platformVersion}" />
+    <property name="deviceName" value="${deviceName}" />
+    <property name="udid" value="${udid}" />
+    <property name="bundleId" value="${bundleId}" />
+    <property name="appActivity" value="${appActivity}" />
+    <property name="appPackage" value="${appPackage}" />
+    <property name="productName" value="${productName}" />
+	<property name="browserName" value="${browserName}" />
+
+    <propertyset id="props4selenium">
+        <propertyref name="driverType" />
+        <propertyref name="remoteAddress" />
+        <propertyref name="apkPath" />
+        <propertyref name="ipaPath" />
+        <propertyref name="platformName" />
+        <propertyref name="platformVersion" />
+        <propertyref name="deviceName" />
+        <propertyref name="udid" />
+        <propertyref name="bundleId" />
+        <propertyref name="appActivity" />
+        <propertyref name="appPackage" />
+        <propertyref name="productName" />
+    </propertyset>
+
+	<path id="classpath">
+		<fileset dir="${lib.dir}" includes="**/*.jar" />
+		<pathelement location="${classes.dir}" />
+	</path>
+
+	<target name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target name="compile">
+		<mkdir dir="${classes.dir}" />
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath" includeantruntime="false" />
+	</target>
+
+	<target name="generateReport">
+		<delete dir="${report.dir}" />
+		<mkdir dir="${report.dir}" />
+		<xslt classpathref="classpath" in="${output.dir}/testng-results.xml" style="${resources.dir}/testng-results.xsl" out="${report.dir}/index.html">
+			<param name="testNgXslt.outputDir" expression="${basedir}/${report.dir}" />
+			<param name="testNgXslt.sortTestCaseLinks" expression="true" />
+			<param name="testNgXslt.testDetailsFilter" expression="FAIL,SKIP,PASS,CONF,BY_CLASS" />
+			<param name="testNgXslt.showRuntimeTotals" expression="true" />
+		</xslt>
+	</target>
+
+	<target name="runTestNG" depends="clean,compile">
+		<testng classpathref="classpath" outputdir="${output.dir}">
+			<xmlfileset dir="${testcase.dir}" includes="testng.xml" />
+            <propertyset refid="props4selenium" />
+		</testng>
+		<antcall target="generateReport" />
+	</target>
+
+	<target name="runTestAPP" depends="clean,compile">
+		<testng classpathref="classpath" outputdir="${output.dir}">
+			<xmlfileset dir="${testcase.dir}" includes="testapp.xml" />
+            <propertyset refid="props4selenium" />
+		</testng>
+		<antcall target="generateReport" />
+	</target>
+
+	<target name="runTestWAP" depends="clean,compile">
+		<testng classpathref="classpath" outputdir="${output.dir}">
+			<xmlfileset dir="${testcase.dir}" includes="testwap.xml" />
+			<propertyset refid="props4selenium" />
+		</testng>
+		<antcall target="generateReport" />
+	</target>
+
+	<target name="runTestWebsite" depends="clean,compile">
+		<testng classpathref="classpath" outputdir="${output.dir}">
+			<xmlfileset dir="${testcase.dir}" includes="testweb.xml" />
+            <propertyset refid="props4selenium" />
+		</testng>
+		<antcall target="generateReport" />
+	</target>
+
+	<target name="runTestLandingPage" depends="clean,compile">
+		<testng classpathref="classpath" outputdir="${output.dir}">
+			<xmlfileset dir="${testcase.dir}" includes="landing-page.xml" />
+			<propertyset refid="props4selenium" />
+		</testng>
+		<antcall target="generateReport" />
+	</target>
+
+	<target name="selectHouse" depends="clean,compile">
+		<testng classpathref="classpath" outputdir="${output.dir}">
+			<xmlfileset dir="${testcase.dir}" includes="selectHouse.xml" />
+		</testng>
+		<antcall target="generateReport" />
+	</target>
+
+	<target name="publishProduct" depends="clean,compile">
+		<testng classpathref="classpath" outputdir="${output.dir}">
+			<xmlfileset dir="${testcase.dir}" includes="publish.xml" />
+			<sysproperty key="pCode" value="${pCode}"/>
+			<sysproperty key="pName" value="${pName}"/>
+			<sysproperty key="totalAmount" value="${totalAmount}"/>
+			<sysproperty key="defaultAmount" value="${defaultAmount}"/>
+			<sysproperty key="collected" value="${collected}"/>
+			<sysproperty key="minAmount" value="${minAmount}"/>
+			<sysproperty key="incrementAmount" value="${incrementAmount}"/>
+			<sysproperty key="pCount" value="${pCount}"/>
+		</testng>
+		<antcall target="generateReport" />
+	</target>
+
+	<target name="releaseCDN" depends="clean,compile">
+		<testng classpathref="classpath" outputdir="${output.dir}">
+			<xmlfileset dir="${testcase.dir}" includes="release-cdn.xml" />
+			<sysproperty key="url-cdn" value="${url-cdn}"/>
+		</testng>
+		<antcall target="generateReport" />
+	</target>
+
+
+</project>
